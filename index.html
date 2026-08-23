@@ -19,6 +19,12 @@
     margin: 0 auto;
     padding: 48px 24px 80px;
   }
+  .top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
   .logo {
     width: 72px;
     height: 72px;
@@ -30,6 +36,27 @@
     margin-bottom: 24px;
   }
   .logo svg { width: 38px; height: 38px; }
+  .lang-switch {
+    display: flex;
+    gap: 4px;
+    background: #ffffff;
+    padding: 3px;
+    border-radius: 100px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-top: 8px;
+  }
+  .lang-switch button {
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #6b7280;
+    padding: 6px 12px;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  .lang-switch button.active { background: #1c1c1e; color: #fff; }
   h1 {
     font-size: 32px;
     font-weight: 800;
@@ -96,54 +123,130 @@
 </head>
 <body>
   <div class="container">
-    <div class="logo">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="3" y="7" width="18" height="14" rx="2" stroke="white" stroke-width="1.8"/>
-        <circle cx="12" cy="13" r="2.3" stroke="white" stroke-width="1.8"/>
-        <path d="M8 4h8" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      </svg>
+    <div class="top-row">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="7" width="18" height="14" rx="2" stroke="white" stroke-width="1.8"/>
+          <circle cx="12" cy="13" r="2.3" stroke="white" stroke-width="1.8"/>
+          <path d="M8 4h8" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="tr">TR</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+      </div>
     </div>
 
-    <h1>Fuarım - Destek</h1>
-    <p class="subtitle">Kartvizitleri akıllı tarayın, bağlantılarınızı güçlendirin.</p>
+    <h1 data-i18n="title">Fuarım - Destek</h1>
+    <p class="subtitle" data-i18n="subtitle">Kartvizitleri akıllı tarayın, bağlantılarınızı güçlendirin.</p>
 
     <div class="card">
       <div class="row">
         <div class="icon">✉️</div>
         <div>
-          <span class="label">E-posta</span>
+          <span class="label" data-i18n="email_label">E-posta</span>
           <a href="mailto:aniiltekli@gmail.com">aniiltekli@gmail.com</a>
         </div>
       </div>
       <div class="row">
         <div class="icon">📞</div>
         <div>
-          <span class="label">Telefon</span>
+          <span class="label" data-i18n="phone_label">Telefon</span>
           <a href="tel:+905465355030">+90 546 535 50 30</a>
         </div>
       </div>
     </div>
 
-    <h2>Sık Sorulan Sorular</h2>
+    <h2 data-i18n="faq_title">Sık Sorulan Sorular</h2>
 
-    <p><strong>Kartvizit taramaları nerede saklanıyor?</strong><br>
-    Tüm kartvizit ve kişi verileriniz cihazınızda yerel olarak saklanır.</p>
+    <p><strong data-i18n="q1">Kartvizit taramaları nerede saklanıyor?</strong><br>
+    <span data-i18n="a1">Tüm kartvizit ve kişi verileriniz cihazınızda yerel olarak saklanır.</span></p>
 
-    <p><strong>AI ile Kullanım nedir?</strong><br>
-    Karmaşık veya zor okunan kartvizitlerde daha doğru sonuç veren, yapay zeka destekli tarama modudur. Kredi gerektirir ve Ayarlar'dan istediğiniz zaman değiştirebilirsiniz.</p>
+    <p><strong data-i18n="q2">AI ile Kullanım nedir?</strong><br>
+    <span data-i18n="a2">Karmaşık veya zor okunan kartvizitlerde daha doğru sonuç veren, yapay zeka destekli tarama modudur. Kredi gerektirir ve Ayarlar'dan istediğiniz zaman değiştirebilirsiniz.</span></p>
 
-    <p><strong>Satın aldığım krediler veya Sınırsız Kullanım'ı geri yükleyemiyorum, ne yapmalıyım?</strong><br>
-    Ayarlar &gt; "Satın Almaları Geri Yükle" seçeneğini kullanabilir, sorun devam ederse bizimle e-posta üzerinden iletişime geçebilirsiniz.</p>
+    <p><strong data-i18n="q3">Satın aldığım krediler veya Sınırsız Kullanım'ı geri yükleyemiyorum, ne yapmalıyım?</strong><br>
+    <span data-i18n="a3">Ayarlar &gt; "Satın Almaları Geri Yükle" seçeneğini kullanabilir, sorun devam ederse bizimle e-posta üzerinden iletişime geçebilirsiniz.</span></p>
 
-    <p><strong>Verilerimi nasıl dışa aktarabilirim?</strong><br>
-    Fuar detay sayfasındaki dışa aktar menüsünden kişilerinizi Excel, CSV veya PDF formatında dışa aktarabilirsiniz.</p>
+    <p><strong data-i18n="q4">Verilerimi nasıl dışa aktarabilirim?</strong><br>
+    <span data-i18n="a4">Fuar detay sayfasındaki dışa aktar menüsünden kişilerinizi Excel, CSV veya PDF formatında dışa aktarabilirsiniz.</span></p>
 
-    <h2>Bize Ulaşın</h2>
-    <p>Uygulamayla ilgili soru, öneri veya sorun bildirimi için yukarıdaki e-posta adresinden veya telefon numarasından bize ulaşabilirsiniz. Genellikle 1-2 iş günü içinde dönüş yapıyoruz.</p>
+    <h2 data-i18n="contact_title">Bize Ulaşın</h2>
+    <p data-i18n="contact_body">Uygulamayla ilgili soru, öneri veya sorun bildirimi için yukarıdaki e-posta adresinden veya telefon numarasından bize ulaşabilirsiniz. Genellikle 1-2 iş günü içinde dönüş yapıyoruz.</p>
 
-    <footer>
+    <footer data-i18n="footer_text">
       Fuarım &copy; 2026 Anıl Tekli. Tüm hakları saklıdır.
     </footer>
   </div>
+
+<script>
+(function () {
+  var translations = {
+    tr: {
+      title: "Fuarım - Destek",
+      subtitle: "Kartvizitleri akıllı tarayın, bağlantılarınızı güçlendirin.",
+      email_label: "E-posta", phone_label: "Telefon",
+      faq_title: "Sık Sorulan Sorular",
+      q1: "Kartvizit taramaları nerede saklanıyor?", a1: "Tüm kartvizit ve kişi verileriniz cihazınızda yerel olarak saklanır.",
+      q2: "AI ile Kullanım nedir?", a2: "Karmaşık veya zor okunan kartvizitlerde daha doğru sonuç veren, yapay zeka destekli tarama modudur. Kredi gerektirir ve Ayarlar'dan istediğiniz zaman değiştirebilirsiniz.",
+      q3: "Satın aldığım krediler veya Sınırsız Kullanım'ı geri yükleyemiyorum, ne yapmalıyım?", a3: "Ayarlar &gt; \"Satın Almaları Geri Yükle\" seçeneğini kullanabilir, sorun devam ederse bizimle e-posta üzerinden iletişime geçebilirsiniz.",
+      q4: "Verilerimi nasıl dışa aktarabilirim?", a4: "Fuar detay sayfasındaki dışa aktar menüsünden kişilerinizi Excel, CSV veya PDF formatında dışa aktarabilirsiniz.",
+      contact_title: "Bize Ulaşın",
+      contact_body: "Uygulamayla ilgili soru, öneri veya sorun bildirimi için yukarıdaki e-posta adresinden veya telefon numarasından bize ulaşabilirsiniz. Genellikle 1-2 iş günü içinde dönüş yapıyoruz.",
+      footer_text: "Fuarım &copy; 2026 Anıl Tekli. Tüm hakları saklıdır."
+    },
+    en: {
+      title: "Fuarım - Support",
+      subtitle: "Scan business cards smartly, strengthen your connections.",
+      email_label: "Email", phone_label: "Phone",
+      faq_title: "Frequently Asked Questions",
+      q1: "Where are my scanned business cards stored?", a1: "All your business card and contact data is stored locally on your device.",
+      q2: "What is AI Mode?", a2: "An AI-powered scanning mode that gives more accurate results for complex or hard-to-read business cards. It requires credits and you can switch modes anytime from Settings.",
+      q3: "I can't restore my purchased credits or Unlimited Use, what should I do?", a3: "You can use Settings &gt; \"Restore Purchases\". If the problem continues, contact us by email.",
+      q4: "How can I export my data?", a4: "You can export your contacts as Excel, CSV, or PDF from the export menu on the fair detail page.",
+      contact_title: "Contact Us",
+      contact_body: "For questions, suggestions, or issues about the app, you can reach us via the email address or phone number above. We usually respond within 1-2 business days.",
+      footer_text: "Fuarım &copy; 2026 Anıl Tekli. All rights reserved."
+    },
+    de: {
+      title: "Fuarım - Support",
+      subtitle: "Visitenkarten intelligent scannen, Ihre Kontakte stärken.",
+      email_label: "E-Mail", phone_label: "Telefon",
+      faq_title: "Häufig gestellte Fragen",
+      q1: "Wo werden meine gescannten Visitenkarten gespeichert?", a1: "Alle Ihre Visitenkarten- und Kontaktdaten werden lokal auf Ihrem Gerät gespeichert.",
+      q2: "Was ist der KI-Modus?", a2: "Ein KI-gestützter Scan-Modus, der bei komplexen oder schwer lesbaren Visitenkarten genauere Ergebnisse liefert. Er erfordert Guthaben und Sie können den Modus jederzeit in den Einstellungen wechseln.",
+      q3: "Ich kann meine gekauften Guthaben oder die unbegrenzte Nutzung nicht wiederherstellen, was soll ich tun?", a3: "Sie können Einstellungen &gt; \"Käufe wiederherstellen\" verwenden. Falls das Problem weiterhin besteht, kontaktieren Sie uns per E-Mail.",
+      q4: "Wie kann ich meine Daten exportieren?", a4: "Sie können Ihre Kontakte über das Exportmenü auf der Messe-Detailseite als Excel, CSV oder PDF exportieren.",
+      contact_title: "Kontaktieren Sie uns",
+      contact_body: "Bei Fragen, Anregungen oder Problemen zur App erreichen Sie uns über die oben genannte E-Mail-Adresse oder Telefonnummer. Wir antworten in der Regel innerhalb von 1-2 Werktagen.",
+      footer_text: "Fuarım &copy; 2026 Anıl Tekli. Alle Rechte vorbehalten."
+    }
+  };
+
+  function applyLang(lang) {
+    if (!translations[lang]) lang = 'tr';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
+    });
+    document.querySelectorAll('.lang-switch button').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+    });
+    try { localStorage.setItem('fuarimLang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang-switch button').forEach(function (b) {
+    b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang')); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('fuarimLang'); } catch (e) {}
+  var browserLang = ((navigator.language || 'tr').slice(0, 2)).toLowerCase();
+  var initial = saved || (['en', 'de'].indexOf(browserLang) !== -1 ? browserLang : 'tr');
+  applyLang(initial);
+})();
+</script>
 </body>
 </html>
